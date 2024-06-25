@@ -14,9 +14,7 @@ A static blog build on top of Notion and Nextjs, deployed on [Vercel](https://ve
   <a aria-label="Build status" href="#" title="Build status">
     <img src="https://img.shields.io/github/deployments/craigary/nobelium/Preview?logo=Vercel&style=for-the-badge">
   </a>
-  <a aria-label="Powered by Vercel" href="https://vercel.com?utm_source=Craigary&utm_campaign=oss" title="Powered by Vercel">
-    <img src="https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg" height="28">
-  </a>
+
 </p>
 
 Demo: [https://nobelium.vercel.app/](https://nobelium.vercel.app/)
@@ -71,6 +69,7 @@ Demo: [https://nobelium.vercel.app/](https://nobelium.vercel.app/)
 Unofficial, thanks to [@Vaayne](https://github.com/craigary/nobelium/pull/157)'s work!
 
 ### Build Docker image yourself
+
 ```
 # set env
 export NOTION_PAGE_ID=xxx # your NOTION_PAGE_ID
@@ -84,6 +83,7 @@ docker run -d --name nobelium -p 3000:3000 -e NOTION_PAGE_ID=${NOTION_PAGE_ID} n
 ```
 
 ### Use default docker image
+
 ```
 # pull image
 docker pull ghcr.io/craigary/nobelium:main

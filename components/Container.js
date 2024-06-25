@@ -1,11 +1,10 @@
-import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import Header from '@/components/Header'
 import { useConfig } from '@/lib/config'
+import cn from 'classnames'
 import Head from 'next/head'
 import PropTypes from 'prop-types'
-import cn from 'classnames'
 // import BlogPost from './BlogPost'
-
 const Container = ({ children, layout, fullWidth, ...customMeta }) => {
   const BLOG = useConfig()
 
@@ -65,6 +64,7 @@ const Container = ({ children, layout, fullWidth, ...customMeta }) => {
           </>
         )}
       </Head>
+
       <div
         className={`wrapper ${BLOG.font === 'serif' ? 'font-serif' : 'font-sans'
           }`}

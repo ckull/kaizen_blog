@@ -1,21 +1,22 @@
-import 'prismjs/themes/prism.css'
-import 'react-notion-x/src/styles.css'
-import 'katex/dist/katex.min.css'
-import App from 'next/app'
+import loadLocale from '@/assets/i18n'
+import Scripts from '@/components/Scripts'
+import { ConfigProvider } from '@/lib/config'
+import { prepareDayjs } from '@/lib/dayjs'
+import { LocaleProvider } from '@/lib/locale'
+import { ThemeProvider } from '@/lib/theme'
 import '@/styles/globals.css'
 import '@/styles/notion.css'
+import 'katex/dist/katex.min.css'
+import App from 'next/app'
 import dynamic from 'next/dynamic'
-import loadLocale from '@/assets/i18n'
-import { ConfigProvider } from '@/lib/config'
-import { LocaleProvider } from '@/lib/locale'
-import { prepareDayjs } from '@/lib/dayjs'
-import { ThemeProvider } from '@/lib/theme'
-import Scripts from '@/components/Scripts'
+import 'prismjs/themes/prism.css'
+import 'react-notion-x/src/styles.css'
+import Layout from './layout'
 
 const Ackee = dynamic(() => import('@/components/Ackee'), { ssr: false })
 const Gtag = dynamic(() => import('@/components/Gtag'), { ssr: false })
 
-export default function MyApp ({ Component, pageProps, config, locale }) {
+export default function MyApp({ Component, pageProps, config, locale }) {
   return (
     <ConfigProvider value={config}>
       <Scripts />
@@ -29,7 +30,10 @@ export default function MyApp ({ Component, pageProps, config, locale }) {
               />
             )}
             {process.env.VERCEL_ENV === 'production' && config?.analytics?.provider === 'ga' && <Gtag />}
-            <Component {...pageProps} />
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+
           </>
         </ThemeProvider>
       </LocaleProvider>
