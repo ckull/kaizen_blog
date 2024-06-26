@@ -1,19 +1,21 @@
 import { clientConfig } from '@/lib/server/config'
 
-import { useRouter } from 'next/router'
-import cn from 'classnames'
-import { getAllPosts, getPostBlocks } from '@/lib/notion'
-import { useLocale } from '@/lib/locale'
-import { useConfig } from '@/lib/config'
-import { createHash } from 'crypto'
+import Comments from '@/components/Comments'
 import Container from '@/components/Container'
 import Post from '@/components/Post'
-import Comments from '@/components/Comments'
-
-export default function BlogPost ({ post, blockMap, emailHash }) {
+import { useConfig } from '@/lib/config'
+import { useLocale } from '@/lib/locale'
+import { getAllPosts, getPostBlocks } from '@/lib/notion'
+import cn from 'classnames'
+import { createHash } from 'crypto'
+import { useRouter } from 'next/router'
+import { useRef } from 'react'
+export default function BlogPost({ post, blockMap, emailHash }) {
   const router = useRouter()
   const BLOG = useConfig()
   const locale = useLocale()
+  const container = useRef()
+
 
   // TODO: It would be better to render something
   if (router.isFallback) return null
@@ -22,6 +24,7 @@ export default function BlogPost ({ post, blockMap, emailHash }) {
 
   return (
     <Container
+      ref={container}
       layout="blog"
       title={post.title}
       description={post.summary}
@@ -70,7 +73,7 @@ export default function BlogPost ({ post, blockMap, emailHash }) {
   )
 }
 
-export async function getStaticPaths () {
+export async function getStaticPaths() {
   const posts = await getAllPosts({ includePages: true })
   return {
     paths: posts.map(row => `${clientConfig.path}/${row.slug}`),
@@ -78,7 +81,7 @@ export async function getStaticPaths () {
   }
 }
 
-export async function getStaticProps ({ params: { slug } }) {
+export async function getStaticProps({ params: { slug } }) {
   const posts = await getAllPosts({ includePages: true })
   const post = posts.find(t => t.slug === slug)
 

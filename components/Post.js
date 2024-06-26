@@ -19,7 +19,7 @@ import TableOfContents from '@/components/TableOfContents'
  * @prop {string}   emailHash  - Author email hash (for Gravatar)
  * @prop {boolean} [fullWidth] - Whether in full-width mode
  */
-export default function Post (props) {
+export default function Post(props) {
   const BLOG = useConfig()
   const { post, blockMap, emailHash, fullWidth = false } = props
   const { dark } = useTheme()

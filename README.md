@@ -5,6 +5,7 @@
 A static blog build on top of Notion and Nextjs
 
 Page: [https://blog-kaizen.vercel.app/](https://blog-kaizen.vercel.app/)
+
 Based on: [nobelium](https://github.com/craigary/nobelium)
 
 ## License

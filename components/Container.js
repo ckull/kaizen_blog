@@ -4,6 +4,7 @@ import { useConfig } from '@/lib/config'
 import cn from 'classnames'
 import Head from 'next/head'
 import PropTypes from 'prop-types'
+import Image from 'next/image'
 // import BlogPost from './BlogPost'
 const Container = ({ children, layout, fullWidth, ...customMeta }) => {
   const BLOG = useConfig()
@@ -69,17 +70,19 @@ const Container = ({ children, layout, fullWidth, ...customMeta }) => {
         className={`wrapper ${BLOG.font === 'serif' ? 'font-serif' : 'font-sans'
           }`}
       >
+
         <Header
           navBarTitle={layout === 'blog' ? meta.title : null}
           fullWidth={fullWidth}
         />
         <main className={cn(
           'flex-grow transition-all',
-          layout !== 'blog' && ['self-center px-4', fullWidth ? 'md:px-24' : 'w-full max-w-2xl']
+          layout !== 'blog' && ['self-center px-4', fullWidth ? 'md:px-24' : 'w-full max-w-3xl']
         )}>
           {children}
         </main>
         <Footer fullWidth={fullWidth} />
+
       </div>
     </div>
   )

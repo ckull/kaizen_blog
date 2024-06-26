@@ -34,6 +34,7 @@ export default function MyApp({ Component, pageProps, config, locale }) {
               <Component {...pageProps} />
             </Layout>
 
+
           </>
         </ThemeProvider>
       </LocaleProvider>

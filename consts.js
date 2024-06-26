@@ -1,5 +1,6 @@
 exports.FONTS_SANS = [
   // '"PPNeueMontreal"',
+  '"Inter"',
   '"IBM Plex Sans"',
   'ui-sans-serif',
   'system-ui',

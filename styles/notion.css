@@ -62,6 +62,7 @@
   @apply my-3;
   line-height: var(--no-leading);
 }
+
 .notion-page-link {
   color: inherit;
 }
