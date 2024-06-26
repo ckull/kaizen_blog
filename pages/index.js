@@ -41,7 +41,7 @@ export default function Blog({ postsToShow, page, showNext }) {
   return (
     <Container title={title} description={description}>
       <div className='h-[calc(100vh-330px)] w-full flex flex-col justify-center items-center text-3xl font-semibold text-gray-600'>
-        <h1 ref={animRef} className='anim'>Hello I'm Chris! Welcome to the Kaizen, the place where I share through my researches and experiences as a Full-Stack Developer.
+        <h1 ref={animRef} className='anim'>{`Hello I'm Chris! Welcome to the Kaizen, the place where I share through my researches and experiences as a Full-Stack Developer.`}
         </h1>
         <div className='flex gap-4 mt-4'>
           <span className='inline-block'><Image src={'/images/unicorn.webp'} width={56} height={56} alt="unicorn" /></span>
