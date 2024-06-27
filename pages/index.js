@@ -10,6 +10,7 @@ import { useGSAP } from "@gsap/react"
 import gsap from 'gsap'
 import Image from 'next/image'
 import { useEffect, useRef } from 'react'
+import { AuroraBackground } from '@/components/ui/aurora-background'
 gsap.registerPlugin(useGSAP);
 
 export async function getStaticProps() {
@@ -40,6 +41,7 @@ export default function Blog({ postsToShow, page, showNext }) {
 
   return (
     <Container title={title} description={description}>
+
       <div className='h-[calc(100vh-330px)] w-full flex flex-col justify-center items-center text-3xl font-semibold text-gray-600'>
         <h1 ref={animRef} className='anim'>{`Hello I'm Chris! Welcome to the Kaizen, the place where I share through my researches and experiences as a Full-Stack Developer.`}
         </h1>

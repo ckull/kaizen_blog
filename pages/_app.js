@@ -33,8 +33,6 @@ export default function MyApp({ Component, pageProps, config, locale }) {
             <Layout>
               <Component {...pageProps} />
             </Layout>
-
-
           </>
         </ThemeProvider>
       </LocaleProvider>

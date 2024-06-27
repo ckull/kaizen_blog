@@ -4,7 +4,7 @@ import { useConfig } from '@/lib/config'
 import cn from 'classnames'
 import Head from 'next/head'
 import PropTypes from 'prop-types'
-import Image from 'next/image'
+import { AuroraBackground } from './ui/aurora-background'
 // import BlogPost from './BlogPost'
 const Container = ({ children, layout, fullWidth, ...customMeta }) => {
   const BLOG = useConfig()
@@ -67,14 +67,18 @@ const Container = ({ children, layout, fullWidth, ...customMeta }) => {
       </Head>
 
       <div
-        className={`wrapper ${BLOG.font === 'serif' ? 'font-serif' : 'font-sans'
+        className={`relative wrapper ${BLOG.font === 'serif' ? 'font-serif' : 'font-sans'
           }`}
       >
+        <div class="absolute top-0 left-0 w-screen h-screen z-[-1]">
+          <AuroraBackground className='w-full h-full' />
+        </div>
 
         <Header
           navBarTitle={layout === 'blog' ? meta.title : null}
           fullWidth={fullWidth}
         />
+
         <main className={cn(
           'flex-grow transition-all',
           layout !== 'blog' && ['self-center px-4', fullWidth ? 'md:px-24' : 'w-full max-w-3xl']
